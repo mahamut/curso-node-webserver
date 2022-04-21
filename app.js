@@ -14,6 +14,7 @@ hbs.registerPartials( __dirname + '/views/partials');
 //servir contenido estático
 app.use( express.static('public') );
 
+/* 
 app.get('/', (req, res) => {
     //old: res.sendFile( __dirname + '/public/index.html' );
     //res.send('Hola');
@@ -38,13 +39,14 @@ app.get('/elemento', (req, res) => {
     });
 });
 
+*/
 /* Para tomar cualquier petición por método específico a cualquier ruta no definida */
 /* Puede ser con function (req, res) o con función de flecha (arrow function) */
 
 app.get('*', function (req, res) {
     //res.send('404 | Page not found')
-    //res.sendFile( __dirname + '/public/404.html' );
-    res.render('404');
+    res.sendFile( __dirname + '/public/index.html' );
+    //res.render('404');
 });
 
 app.listen(port, () => {
